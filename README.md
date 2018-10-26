@@ -17,4 +17,4 @@ To calibrate, unplug and plug it back
 Press buttons for the movement
 
 ## Authors
-Sidhant Singhal - GUI and PWM And ESC
+Sidhant Singhal - GUI PWM ESC
