@@ -34,7 +34,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Sid** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Sid** 
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
