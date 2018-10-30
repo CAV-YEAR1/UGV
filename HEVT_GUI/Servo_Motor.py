@@ -64,7 +64,7 @@ def manual_drive():
 def control(): 
     print ("I'm Starting the motor, I hope its calibrated and armed, if not restart by giving 'x'")
     time.sleep(1)
-    speed = 1300  # change your speed if you want to.... it should be between 700 - 2000
+    speed = 1350  # change your speed if you want to.... it should be between 700 - 2000
     print ("Controls - a to decrease speed & d to increase speed OR q to decrease a lot of speed & e to increase a lot of speed")
     while True:
         pi.set_servo_pulsewidth(ESC, speed)
