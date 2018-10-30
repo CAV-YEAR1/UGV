@@ -1,27 +1,11 @@
 /*
 =================================================================================
  Name        : i2c-arduino.c
- Version     : 0.1
-
- Copyright (C) 2012 by Andre Wussow, 2012, desk@binerry.de
-
- Description :
-     Sample of controlling an Arduino connected to Jetson TK1 via I2C.
-
-
- References  :
- #######http://binerry.de/post/27128825416/raspberry-pi-with-i2c-arduino-slave
+ Version     : 1.0
 
 ================================================================================
-This sample is free software; you can redistribute it and/or
-modify it under the terms of the GNU Lesser General Public
-License as published by the Free Software Foundation; either
-version 2.1 of the License, or (at your option) any later version.
-
-This sample is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-Lesser General Public License for more details.
+This code sends i2c messages from the jetson to Arduino and recieves a message 
+as well. Do not modify code unless you know what you're doing.
 ================================================================================
 */
 
@@ -40,21 +24,11 @@ Lesser General Public License for more details.
 #include <iosfwd>
 #include <sstream>
 #include <fstream>
-#include <iterator>
 #include <iostream>
-#include <vector>
-#include <deque>
-#include <stack>
-#include <map>
-#include <list>
-#include <unordered_set>
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <cctype>
-#include <math.h>
-#include <memory.h>
-#include <algorithm>
 #include <string.h>
 #include <time.h>
 
@@ -76,7 +50,7 @@ char buffer[7];
 // function for testing command
 void get_data(int handle, char slave)
 {
-    char command[3] = {(char) (65+slave), 66, 67};
+    	char command[3] = {'c', 'a', 'v'};
 
 	std::cout << "sending to slave " << slave << std::endl;
 	readBytes = write(handle, command, 3);
@@ -85,8 +59,9 @@ void get_data(int handle, char slave)
 	usleep(100000); // 100ms
 
 	// read success
-	readBytes = read(handle, buffer, 7);
-	if (readBytes != 7)
+	readBytes = read(handle, buffer, 4);
+	
+	if (readBytes != 4)
 		std::cout << "Error: Invalid receive!" << std::endl;
 	else
         std::cout << "Response: " << buffer << std::endl;
@@ -96,20 +71,18 @@ int main (void)
 {
 	// print infos
 	printf("Jetson TX2 I2C Arduino\n");
-	printf("=================================\n");
+	printf("===================================\n");
 
 	// initialize buffer
 	buffer[0] = 0x00;
 
 	// address of i2c Arduino device 1
-    int device1I2CAddress = 0x04;  // (0x01 = 42)
+    	int device1I2CAddress = 0x04;  // (0x01 = 42)
 
-    //std::string i2c_port = "/dev/i2c-0"; //GEN1_I2C
-    std::string i2c_port = "/dev/i2c-1"; //GEN2_I2C
-    //std::string i2c_port = "/dev/i2c-2"; //CAM_I2C
-    //std::string i2c_port = "/dev/i2c-4"; //PWR_I2C
-
-	// open device on /dev/i2c-0
+    	//std::string i2c_port = "/dev/i2c-0"; //GEN1_I2C
+   	std::string i2c_port = "/dev/i2c-1"; //GEN2_I2C
+    	
+	// open device on /dev/i2c-1
 	if ((device1Handle = open(i2c_port.c_str(), O_RDWR)) < 0) {
 		printf("Error: Couldn't open device! %d\n", device1Handle);
 		return 1;
@@ -121,10 +94,10 @@ int main (void)
 		return 1;
 	}
 
-    for(int i=0; i<10; i++) {
-        get_data(device1Handle, 0);
+    	for(int i=0; i<10; i++) {
+        	get_data(device1Handle, 0);
 		usleep(1000000); // 1s
-    }
+    	}
 
 	// close connection and return
 	close(device1Handle);
