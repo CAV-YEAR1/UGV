@@ -7,7 +7,6 @@ import pigpio
 import RPi.GPIO as GPIO
 
 
-
 servoPIN = 17
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(servoPIN, GPIO.OUT)
@@ -24,16 +23,18 @@ pi.set_servo_pulsewidth(ESC, 0)
 max_value = 1830 
 min_value = 1100
 Direction = 6.0 #for turning
-speed = 1500
+speed = 1560
 
 pygame.init()
 
 width_height = (1150, 700)
-screen = pygame.display.set_mode(width_height)
+
+#screen = pygame.display.set_mode(width_height)
+
 buttonFont = pygame.font.SysFont("monospace", 25)
 pygame.display.set_caption("HEVT")
-backdrop = pygame.image.load("HEVT_m.png").convert()  #back ground
-backdropbox = screen.get_rect()
+#backdrop = pygame.image.load("HEVT_m.png").convert()  #back ground
+#backdropbox = screen.get_rect()
 
 # calibrate Button 
 calibrate_button = pygame.Rect(100, 100, 160, 60)
@@ -86,10 +87,102 @@ Current_SD_Label = Label_Font.render("Current", 1, (255, 255, 0))
 Current_Speed_Label = Label_Font.render("Speed:", 1, (255, 255, 0))
 Current_Direction_Label = Label_Font.render("Direction:", 1, (255, 255, 0))
 
+
+def calibrate():
+    pi.set_servo_pulsewidth(ESC, 0)
+    print("Disconnect the battery")
+    pi.set_servo_pulsewidth(ESC, max_value)
+    time.sleep(5)
+    print("Connect the battery")
+    pi.set_servo_pulsewidth(ESC, min_value)
+    time.sleep(2)
+    print ("Wait for it ....")
+    time.sleep (5)
+    pi.set_servo_pulsewidth(ESC, 0)
+    time.sleep(2)
+    pi.set_servo_pulsewidth(ESC, min_value)
+    time.sleep(1)
+    print ("Now you can press the buttons!")
+    
+def increase_speed():
+    global speed
+    print("inc_speed")
+    speed = speed + 20
+    pi.set_servo_pulsewidth(ESC, speed)
+    print("speed:", speed)
+    
+def decrease_speed():
+    global speed
+    print("dec_speed") 
+    speed = speed - 20
+    pi.set_servo_pulsewidth(ESC, speed)
+    print("speed:", speed)
+    
+def left_side():
+    global Direction
+    print("left_side")
+    Direction = Direction + 0.5
+    p.ChangeDutyCycle(Direction)
+    time.sleep(0.5)
+    
+def right_side():
+    global Direction
+    print("right_side")
+    Direction = Direction - 0.5
+    p.ChangeDutyCycle(Direction)
+    time.sleep(0.5)
+    
+def stop():
+    print("stop")
+    pi.set_servo_pulsewidth(ESC, 0)
+    pi.stop()
+    
 clock = pygame.time.Clock()
 
-def main():
-    global is_blue, x, y, Direction, speed, ESC
+def cmd_line():
+    user_input = raw_input("cal, left = a, right = d , up = w , down = s , stop:   ")
+    cmd_true = True
+    while cmd_true:
+        if user_input is not None: 
+            if user_input == "cal":
+                print("calibrate")
+                calibrate()
+                cmd_true = False
+                cmd_line()
+                        
+            if user_input == "w":
+                print(" + ")
+                increase_speed()
+                cmd_true = False 
+                cmd_line()
+                         
+            if user_input == "s":
+                print(" - ")
+                decrease_speed()
+                cmd_true = False
+                cmd_line()
+                
+            if user_input == "a":
+                print("LEFT")
+                left_side()
+                cmd_true = False
+                cmd_line()
+            
+            if user_input == "d":
+                print("RIGHT")
+                right_side()
+                cmd_true = False
+                cmd_line()
+                
+            if user_input == "stop":
+                print("STOP")
+                stop()
+                cmd_true = False
+                cmd_line()
+                
+def gui():
+    #global Direction, speed, ESC
+    screen = pygame.display.set_mode(width_height)
     main = True
     while main:
         for event in pygame.event.get():
@@ -98,54 +191,34 @@ def main():
                     
                     if calibrate_button.collidepoint(event.pos):
                         print("calibrate")
-                        pi.set_servo_pulsewidth(ESC, 0)
-                        print("Disconnect the battery")
-                        pi.set_servo_pulsewidth(ESC, max_value)
-                        time.sleep(5)
-                        print("Connect the battery")
-                        pi.set_servo_pulsewidth(ESC, min_value)
-                        time.sleep(2)
-                        print ("Wait for it ....")
-                        time.sleep (5)
-                        pi.set_servo_pulsewidth(ESC, 0)
-                        time.sleep(2)
-                        pi.set_servo_pulsewidth(ESC, min_value)
-                        time.sleep(1)
-                        print ("Now you can press the buttons!")
+                        calibrate()
                                 
                     if manual_button.collidepoint(event.pos):
                         print("manual")
-                        
-                                
+                          
                     if increase_button.collidepoint(event.pos):
                         print(" + ")
-                        speed = speed + 20
-                        pi.set_servo_pulsewidth(ESC, speed)
+                        increase_speed()
                                  
                     if decrease_button.collidepoint(event.pos):
                         print(" - ")
-                        speed = speed - 20
-                        pi.set_servo_pulsewidth(ESC, speed)
+                        decrease_speed()
                         
                     if left_button.collidepoint(event.pos):
                         print("LEFT")
-                        Direction = Direction + 0.5
-                        p.ChangeDutyCycle(Direction)
-                        time.sleep(0.5)
+                        left_side()
                         
                     if right_button.collidepoint(event.pos):
                         print("RIGHT")
-                        Direction = Direction - 0.5
-                        p.ChangeDutyCycle(Direction)
-                        time.sleep(0.5)
+                        right_side()
                         
                     if stop_button.collidepoint(event.pos):
                         print("STOP")
-                        pi.set_servo_pulsewidth(ESC, 0)
-                        pi.stop()
+                        stop()
+                        
                 
         screen.fill((30, 30, 30))
-        screen.blit(backdrop, backdropbox)
+        #screen.blit(backdrop, backdropbox)
         
         screen.blit(Speed_Label, (900, 200))
         screen.blit(Direction_Label, (900, 300))
@@ -188,6 +261,150 @@ def main():
                         
         pygame.display.flip()
         clock.tick(60)
+    
+def auto():
+    global speed
+    print("will follow EPA US06 or Supplemental Fedral Test Procedure")
+    user_input = raw_input("cal, start: ")
+    cmd_true = True
+    while cmd_true:
+        if user_input is not None: 
+            if user_input == "cal":
+                print("calibrate")
+                calibrate()
+                cmd_true = False
+                auto()
+                        
+            if user_input == "start":
+                for x in range (0,30):
+                    speed = speed + 5
+                    pi.set_servo_pulsewidth(ESC, speed)
+                    print("speed:", speed)
+                    x = x+1
+                    time.sleep(0.5)
+                
+                time.sleep(0.5)   
+                for y in range (0,30):
+                    speed = speed -5
+                    pi.set_servo_pulsewidth(ESC, speed)
+                    print("speed:", speed)
+                    y = y +1
+                    time.sleep(0.5)
+                
+                time.sleep(0.5)
+                for z in range (0,30):
+                    speed = speed + 9
+                    pi.set_servo_pulsewidth(ESC, speed)
+                    print("speed:", speed)
+                    z = z+1
+                    time.sleep(0.5)
+                
+                time.sleep(0.5)
+                for a in range (0,30):
+                    speed = speed -9
+                    pi.set_servo_pulsewidth(ESC, speed)
+                    print("speed:", speed)
+                    a = a +1
+                    time.sleep(0.5)
+                
+                #third 
+                time.sleep(0.5)
+                for b in range (0,10):
+                    speed = speed + 15
+                    pi.set_servo_pulsewidth(ESC, speed)
+                    print("speed:", speed)
+                    b = b+1
+                    time.sleep(0.5)
+                
+                time.sleep(0.5)
+                for c in range (0,30):
+                    speed = speed + 2
+                    pi.set_servo_pulsewidth(ESC, speed)
+                    print("speed:", speed)
+                    c = c +1
+                    time.sleep(0.5)
+                    
+                time.sleep(0.5)
+                for d in range (0,10):
+                    speed = speed + 3
+                    pi.set_servo_pulsewidth(ESC, speed)
+                    print("speed:", speed)
+                    d = d+1
+                    time.sleep(0.5)
+                
+                time.sleep(0.5)
+                for e in range (0,10):
+                    speed = speed -3 
+                    pi.set_servo_pulsewidth(ESC, speed)
+                    print("speed:", speed)
+                    e = e +1
+                    time.sleep(0.5)
+                    
+                time.sleep(0.5)
+                for f in range (0,30):
+                    speed = speed -2 
+                    pi.set_servo_pulsewidth(ESC, speed)
+                    print("speed:", speed)
+                    f = f +1
+                    time.sleep(0.5)
+                    
+                time.sleep(0.5)
+                for g in range (0,10):
+                    speed = speed - 15 
+                    pi.set_servo_pulsewidth(ESC, speed)
+                    print("speed:", speed)
+                    g = g +1
+                    time.sleep(0.5)
+                    
+                #fourth
+                pi.set_servo_pulsewidth(ESC, 1610)
+                print("speed:", speed)
+                time.sleep(0.5)
+                pi.set_servo_pulsewidth(ESC, 1580)
+                print("speed:", speed)
+                time.sleep(0.5)
+                pi.set_servo_pulsewidth(ESC, 1640)
+                print("speed:", speed)
+                time.sleep(0.5)
+                pi.set_servo_pulsewidth(ESC, 1570)
+                print("speed:", speed)
+                time.sleep(0.5)
+                pi.set_servo_pulsewidth(ESC, 1640)
+                print("speed:", speed)
+                time.sleep(0.5)
+                pi.set_servo_pulsewidth(ESC, 1580)
+                print("speed:", speed)
+                time.sleep(0.5)
+                pi.set_servo_pulsewidth(ESC, 1670)
+                print("speed:", speed)
+                time.sleep(0.5)
+                pi.set_servo_pulsewidth(ESC, 1580)
+                print("speed:", speed)
+                time.sleep(0.5)
+                pi.set_servo_pulsewidth(ESC, 1780)
+                print("speed:", speed)
+                time.sleep(0.5)
+                pi.set_servo_pulsewidth(ESC, 1560)
+                print("speed:", speed)
+                pi.set_servo_pulsewidth(ESC, 0)
+                    
+                    
+                
+                
+                
+                 
+    
+
+def main():
+    user_input = raw_input("gui, cmd , auto:   ")
+    if user_input == "gui":
+        gui()
+    elif user_input == "cmd":
+        cmd_line()
+    elif user_input == "auto":
+        auto()
+               
         
+ 
 if __name__ == '__main__':
     main()
