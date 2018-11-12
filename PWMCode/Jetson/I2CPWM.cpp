@@ -32,9 +32,9 @@ bool PWM::sendData() {
 }
 
 bool PWM::getData() {
-  readBytes = read(device1Handle, buffer, 4);
+  readBytes = read(device1Handle, buffer, 6);
 
-	if (readBytes != 4) {
+	if (readBytes != 6) {
     std::cout << "Error: Invalid receive!" << std::endl;
     return false;
   }
@@ -50,10 +50,11 @@ void PWM::clean() {
 
 void PWM::run() {
   if(!commSetup()) return;
-  for(int i = 0; i< 10; ++i)
-  sendData();
-  usleep(100000);
-  getData();
-  usleep(1000000);
+  for(int i = 0; i< 10; ++i) {
+    sendData();
+    usleep(100000);
+    getData();
+    usleep(1000000);
+  }
   clean();
 }
