@@ -4,7 +4,7 @@
  Version     : 1.0
 
 ================================================================================
-This code sends i2c messages from the jetson to Arduino and recieves a message 
+This code sends i2c messages from the jetson to Arduino and recieves a message
 as well. Do not modify code unless you know what you're doing.
 ================================================================================
 */
@@ -50,7 +50,7 @@ char buffer[7];
 // function for testing command
 void get_data(int handle, char slave)
 {
-    	char command[3] = {'c', 'a', 'v'};
+	char command[3] = {'c', 'a', 'v'};
 
 	std::cout << "sending to slave " << slave << std::endl;
 	readBytes = write(handle, command, 3);
@@ -59,9 +59,9 @@ void get_data(int handle, char slave)
 	usleep(100000); // 100ms
 
 	// read success
-	readBytes = read(handle, buffer, 4);
-	
-	if (readBytes != 4)
+	readBytes = read(handle, buffer, 6);
+
+	if (readBytes != 6)
 		std::cout << "Error: Invalid receive!" << std::endl;
 	else
         std::cout << "Response: " << buffer << std::endl;
@@ -77,11 +77,11 @@ int main (void)
 	buffer[0] = 0x00;
 
 	// address of i2c Arduino device 1
-    	int device1I2CAddress = 0x04;  // (0x01 = 42)
+	int device1I2CAddress = 0x04;  // (0x01 = 42)
 
     	//std::string i2c_port = "/dev/i2c-0"; //GEN1_I2C
-   	std::string i2c_port = "/dev/i2c-1"; //GEN2_I2C
-    	
+ 	std::string i2c_port = "/dev/i2c-1"; //GEN2_I2C
+
 	// open device on /dev/i2c-1
 	if ((device1Handle = open(i2c_port.c_str(), O_RDWR)) < 0) {
 		printf("Error: Couldn't open device! %d\n", device1Handle);
