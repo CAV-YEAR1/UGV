@@ -28,7 +28,7 @@ bool PWM::sendData() {
 	std::cout << "sending to slave " << slave << std::endl;
 	readBytes = write(device1Handle, command, 3);
 
-  return true
+  return true;
 }
 
 bool PWM::getData() {
@@ -55,5 +55,5 @@ void PWM::run() {
   usleep(100000);
   getData();
   usleep(1000000);
-  close();
+  clean();
 }
