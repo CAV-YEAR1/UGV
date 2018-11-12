@@ -28,7 +28,7 @@ bool PWM::sendData() {
   char command[6] = {'1', '1', '0', '1', '8', '0'};
 
 	std::cout << "sending to slave " << slave << std::endl;
-	readBytes = write(device1Handle, command, 3);
+	readBytes = write(device1Handle, command, 6);
 
   return true;
 }
