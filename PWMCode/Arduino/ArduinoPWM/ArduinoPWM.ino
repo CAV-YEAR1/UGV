@@ -74,11 +74,12 @@ void requestEvent()
   String sp = String(currentRC.Speed, DEC);
   if(sp.length()<3) sp = String("0" + sp);
   String st = String(currentRC.Steering, DEC);
-  if(st.length()<3) sp = String("0" + st);
+  if(st.length()<3) st = String("0" + st);
   String s = sp + st;
   Wire.write(s.c_str()); // respond with message of 6 bytes
 
-  Serial.println("Slave 1 Sent");
+  Serial.println("Slave 1 Sent: ");
+  Serial.println(s);
 }
 
 void receiveEvent(int howMany)
@@ -99,8 +100,9 @@ void receiveEvent(int howMany)
   currentRC.Speed = sp.toInt();
   currentRC.Steering = st.toInt();
   
-  Serial.print("Slave 1 Rx: ");
-  Serial.println(s);
+  Serial.println("Slave 1 Rx: ");
+  Serial.println(sp);
+  Serial.println(st);
 }
 
 void Run()

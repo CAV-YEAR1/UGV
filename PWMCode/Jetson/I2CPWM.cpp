@@ -11,13 +11,13 @@ bool PWM::commSetup() {
 	// open device on /dev/i2c-1
 	if ((device1Handle = open(i2c_port.c_str(), O_RDWR)) < 0) {
 		printf("Error: Couldn't open device! %d\n", device1Handle);
-		return 1;
+		return false;
 	}
 
 	// connect to arduino as i2c slave
 	if (ioctl(device1Handle, I2C_SLAVE, device1I2CAddress) < 0) {
 		printf("Error: Couldn't find arduino on address!\n");
-		return 1;
+		return false;
 	}
 
 }
@@ -27,15 +27,21 @@ bool PWM::sendData() {
 
 	std::cout << "sending to slave " << slave << std::endl;
 	readBytes = write(device1Handle, command, 3);
+
+  return true
 }
 
 bool PWM::getData() {
   readBytes = read(handle, buffer, 4);
 
-	if (readBytes != 4)
+	if (readBytes != 4) {
     std::cout << "Error: Invalid receive!" << std::endl;
+    return false;
+  }
 	else
     std::cout << "Response: " << buffer << std::endl;
+
+  return true;
 }
 
 void PWM::close() {
@@ -43,7 +49,7 @@ void PWM::close() {
 }
 
 void PWM::run() {
-  commSetup();
+  if(!commSetup()) return;
   for(int i = 0; i< 10, ++i)
   sendData();
   usleep(100000);
