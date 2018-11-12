@@ -47,7 +47,7 @@ public:
   bool commSetup();
   bool sendData();
   bool getData();
-  void close();
+  void clean();
   void run();
 
 };
