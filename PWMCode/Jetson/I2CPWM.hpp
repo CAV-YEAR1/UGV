@@ -43,7 +43,7 @@ private:
   int slave;
 
 public:
-  void PWM(int address);
+  PWM(int address);
   bool commSetup();
   bool sendData();
   bool getData();

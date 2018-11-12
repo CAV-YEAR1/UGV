@@ -1,6 +1,6 @@
 #include "I2CPWM.hpp"
 
-void PWM::PWM(int address) : device1I2CAddress(address), slave(0) {}
+PWM::PWM(int address) : device1I2CAddress(address), slave(0) {}
 
 bool PWM::commSetup() {
   // initialize buffer
