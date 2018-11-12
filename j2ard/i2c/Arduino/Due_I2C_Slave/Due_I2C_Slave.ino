@@ -21,7 +21,7 @@ void loop()
 // this function is registered as an event, see setup()
 void requestEvent()
 {
-  Wire.write("HEVT"); // respond with message of 6 bytes
+  Wire.write("HEVT"); // respond with message of 4 bytes
 
   Serial.println("Slave 1 Sent");
 }
