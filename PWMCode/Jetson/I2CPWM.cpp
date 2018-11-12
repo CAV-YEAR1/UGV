@@ -25,7 +25,7 @@ bool PWM::commSetup() {
 }
 
 bool PWM::sendData() {
-  char command[3] = {'1', '1', '0', '1', '8', '0'};
+  char command[6] = {'1', '1', '0', '1', '8', '0'};
 
 	std::cout << "sending to slave " << slave << std::endl;
 	readBytes = write(device1Handle, command, 3);
