@@ -20,6 +20,8 @@ bool PWM::commSetup() {
 		return false;
 	}
 
+  return true;
+
 }
 
 bool PWM::sendData() {
