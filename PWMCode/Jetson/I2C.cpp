@@ -15,8 +15,8 @@ bool IIC::commSetup() {
   while(!in.fail()) {
     if(line[0] != '#') {
       config.push_back(line);
-      std::getline(in, line);
     }
+    std::getline(in, line);
   }
 
  	std::string i2c_port = config[0];
