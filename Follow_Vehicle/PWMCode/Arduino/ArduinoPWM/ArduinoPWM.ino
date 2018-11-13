@@ -72,9 +72,9 @@ void loop() {
 void requestEvent()
 {
   String sp = String(currentRC.Speed, DEC);
-  if(sp.length()<3) sp = String("0" + sp);
+  while(sp.length()<3) sp = String("0" + sp);
   String st = String(currentRC.Steering, DEC);
-  if(st.length()<3) st = String("0" + st);
+  while(st.length()<3) st = String("0" + st);
   String s = sp + st;
   Wire.write(s.c_str()); // respond with message of 6 bytes
 
