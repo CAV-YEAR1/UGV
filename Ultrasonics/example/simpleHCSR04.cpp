@@ -63,27 +63,43 @@ int getkey() {
 
 int main(int argc, char *argv[]){
 
-    // Use gpio165 as trigger, gpio166 as echo
-    HCSR04 *hcsr04 = new HCSR04();
-    // Make the HC-SR04 available in user space
+    // Use gpio392 as trigger, gpio394 as echo
+    HCSR04 *hcsr04 = new HCSR04(gpio392, gpio394);
+    // set another ultrasonic using gpio392 as trigger and gpio395 for echo
+    HCSR04 *hcsr04_2 = new HCSR04(gpio392, gpio395);
+    // Make the HC-SR04's available in user space
     hcsr04->exportGPIO() ;
+    hcsr04_2->exportEchoGPIO();
     // Then set the direction of the pins
     hcsr04->setDirection() ;
+    hcsr04_2->setEcho();
 
     while(getkey() != 27){
         // unsigned int duration = ping() ;
         // unsigned int duration = ping_median(5) ;
         unsigned int duration = hcsr04->pingMedian(5) ;
-        if (duration == NO_ECHO) {
-          cout << "No echo" << endl ;
-        } else {
+	unsigned int duration_2 = hcsr04_2->pingMedian(5);
+        if (duration == NO_ECHO && duration_2 == NO_ECHO) {
+          cout << "No echo from sensor 1 and 2." << endl ;
+        }
+	else if (duration == NO_ECHO && duration_2 != NO_ECHO) {
+	  cout << "No echo from sensor 1." << endl;
+	  cout << "Sensor 2 Reading - Duration: " << duration_2 << " Distance (in): " << duration_2/148 << " Distance (cm): " << duration_2/58.0 << endl ;
+	}
+	else if (duration != NO_ECHO && duration_2 == NO_ECHO) {
+	  cout << "Sensor 1 Reading - Duration: " << duration << " Distance (in): " << duration/148 << " Distance (cm): " << duration/58.0 << endl ;
+	  cout << "No echo from sensor 1." << endl;
+	}
+        else {
             // print out distance in inches and centimeters
-            cout << "Duration: " << duration << " Distance (in): " << duration/148 << " Distance (cm): " << duration/58.0 << endl ;
+            cout << "Sensor 1 Reading - Duration: " << duration << " Distance (in): " << duration/148 << " Distance (cm): " << duration/58.0 << endl ;
+	    cout << "Sensor 2 Reading - Duration: " << duration_2 << " Distance (in): " << duration_2/148 << " Distance (cm): " << duration_2/58.0 << endl ;
         }
         usleep(10000); // sleep 10 milliseconds
     }
     cout << "HC-SR04 example finished." << endl;
     hcsr04->unexportGPIO() ;
+    hcsr04_2->unexportEchoGPIO();
     return 0;
 }
 

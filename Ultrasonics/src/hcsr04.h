@@ -37,12 +37,15 @@ class HCSR04
 public:
     jetsonGPIO hcsr04Trigger ;
     jetsonGPIO hcsr04Echo ;
-    HCSR04(jetsonGPIO triggerGPIO=gpio392, jetsonGPIO echoGPIO=gpio394) ;
+    HCSR04(jetsonGPIO triggerGPIO, jetsonGPIO echoGPIO) ;
     ~HCSR04() ;
     // GPIO functions
     void exportGPIO ( void ) ;
+    void exportEchoGPIO(void);
     void unexportGPIO ( void ) ;
+    void unexportEchoGPIO(void);
     void setDirection ( void ) ;
+    void setEcho(void);
     // Pingin'
     bool triggerPing ( void ) ;			// Send out the trigger pulse to start an echo
                                         // Not usually used by application code

@@ -5,10 +5,11 @@ UGV for Testing puposes based on Jetson Car model - FRONT
 ## Getting Started
 
 This project is developed for tesing purposes. We have a rapberry pi with rasbian installed. Download Python 2.7 in not aleady installed.
+The ultrasonics folder holds the implementation for reading ultrasonic sensor data
 
 ### Prerequisites
 Python 2.7
-
+gcc 5.4.0
 
 ## Running the tests
 The program shows all the readings of PWM and ESC on the GUI. And also shows which buttns are pressed on the terminal.
@@ -18,11 +19,19 @@ Run the code
 To calibrate, unplug and plug it back
 Press buttons for the movement
 
+The ultrasonics folder shows readings of two ultrasonic sensors operating from the same trigger
+
+configure the sensors with the jetson as shown in the wiring diagram **FIXME - wiring diagram need to be updated for 2 Sensors
+Run make file in the example folder to construct the executable
+run executable as root user
+
 ## Deployment
 Run the program with
 python UGV_GUI.py
 
-
+For ultrasonics:
+See the [usablePorts.txt] file for info on which GPIO ports can be used and info on each port being used function
+This file also contains information on how the original code from JetsonHacks was modified to support 2 ultrasonics
 
 ## Contributing
 
@@ -35,7 +44,8 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Authors
 
 * **Sid** 
-
+* **Tom**
+* **Graham**
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License

@@ -43,10 +43,19 @@ void HCSR04::exportGPIO ( void ) {
     gpioExport(hcsr04Trigger) ;
     gpioExport(hcsr04Echo) ;
 }
+//so we don't need to export trigger gpio twice
+void HCSR04::exportEchoGPIO(void) {
+    gpioExport(hcsr04Echo);
+}
 
 void HCSR04::unexportGPIO ( void ) {
     gpioUnexport(hcsr04Trigger) ;
     gpioUnexport(hcsr04Echo) ;
+}
+
+//so that we don't unexport trigger twice
+void HCSR04::unexportEchoGPIO(void) {
+    gpioUnexport(hcsr04Echo);
 }
 
 void HCSR04::setDirection ( void ) {
@@ -54,6 +63,11 @@ void HCSR04::setDirection ( void ) {
     gpioSetDirection(hcsr04Trigger,outputPin) ;
     gpioSetDirection(hcsr04Echo,inputPin) ;
   
+}
+
+void HCSR04::setEcho(void) {
+    //so that we don't need to reset direction of the trigger twice
+    gpioSetDirection(hcsr04Echo, inputPin);
 }
 
 // Send the trigger sound from the HC-SR04

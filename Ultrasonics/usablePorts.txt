@@ -1,0 +1,12 @@
+gpio392 - currently in use to send trigger signal to the ultrasonic
+gpio394 - usable to read detection from ultrasonic
+gpio393 - usable to read detection from ultrasonic
+gpio388 - usable to read detection from ultrasonic
+gpio395 - usable to read detection from ultrasonic
+
+**modifications for 2 ultrasonics both being triggered by gpio392
+--modify hcsr04 constructor in hcsr04.h
+--add declarations for exportEchoGPIO, unexportEchoGPIO, setEcho to hscr04.cpp
+--declare exportEchoGPIO, unexportEchoGPIO, setEcho to hcsr04.cpp so we don't need to export, unexport or set direction of trigger twice
+--add another enumeration to jetsonGPIO.h for the gpio395 pin
+--update simpleHCSR04.cpp to support two ultrasonic sensors
