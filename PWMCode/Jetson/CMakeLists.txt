@@ -3,4 +3,4 @@ set( CMAKE_CXX_STANDARD 11)
 
 project(JetsonMoterControl)
 
-add_executable(JAPWM I2CPWM.hpp I2CPWM.cpp PWMMain.cpp)
+add_executable(I2C I2C.hpp I2C.cpp I2CMain.cpp)

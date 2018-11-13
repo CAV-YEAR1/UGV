@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-  PWM p(0x04);
+  PWM p("../I2C-config.txt");
   p.run();
   return 0;
 }

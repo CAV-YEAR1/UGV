@@ -1,5 +1,5 @@
-#ifndef _I2CPWM_HPP_
-#define _I2CPWM_HPP_
+#ifndef _I2C_HPP_
+#define _I2C_HPP_
 
 #include <iostream>
 #include <linux/types.h>
@@ -33,17 +33,21 @@
 
 #include <linux/i2c-dev.h>
 
-class PWM {
+class IIC {
 
 private:
+  std::string filename;
   int device1Handle;
   int readBytes;
-  char buffer[7];
+  char * buffer[];
   int device1I2CAddress;
   int slave;
+  int sendLength;
+  int receiveLength;
+  std::vector<std::string> config;
 
 public:
-  PWM(int address);
+  IIC(std::string file);
   bool commSetup();
   bool sendData();
   bool getData();
