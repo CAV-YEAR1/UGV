@@ -1,6 +1,6 @@
 #include "I2C.hpp"
 
-IIC::IIC(srd::string file) : filename(file) {}
+IIC::IIC(std::string file) : filename(file) {}
 
 bool IIC::commSetup() {
 
@@ -10,10 +10,12 @@ bool IIC::commSetup() {
     return false;
   }
 
-  std::string line = in.getline();
-  While(!in.fail()) {
+  std::string line;
+  std::getline(in, line);
+  while(!in.fail()) {
     if(line[0] != '#') {
       config.push_back(line);
+      std::getline(in, line);
     }
   }
 
@@ -26,7 +28,7 @@ bool IIC::commSetup() {
   receiveLength = stoi(config[3]);
 
   // initialize buffer
-  buffer = new buffer[receiveLength + 1];
+  buffer = new char[receiveLength + 1];
   buffer[0] = 0x00;
 
 	// open device on /dev/i2c-1
@@ -50,10 +52,10 @@ bool IIC::sendData(std::string message) {
     std::cout<<"Error: Invalid message length"<<std::endl;
     return false;
   }
-  char command[sendLength] = message.c_str();
+  message.c_str();
 
 	std::cout << "sending to slave " << slave << std::endl;
-	readBytes = write(device1Handle, command, sendLength);
+	readBytes = write(device1Handle, message.c_str(), sendLength);
 
   return true;
 }
@@ -78,7 +80,7 @@ void IIC::clean() {
 void IIC::run() {
   if(!commSetup()) return;
   for(int i = 0; i< 10; ++i) {
-    sendData("000000");
+    if(!sendData("000000")) return;
     usleep(100000);
     getData();
     usleep(1000000);

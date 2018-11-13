@@ -1,8 +1,8 @@
-#include "I2CPWM.hpp"
+#include "I2C.hpp"
 
 int main(int argc, char *argv[])
 {
-  PWM p("../I2C-config.txt");
-  p.run();
+  IIC comm("../I2C-config.txt");
+  comm.run();
   return 0;
 }

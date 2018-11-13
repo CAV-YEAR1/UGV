@@ -11,18 +11,17 @@
 #include <sys/types.h>
 #include <sys/timeb.h>
 
-#include <exception>
 #include <string>
 #include <iosfwd>
 #include <sstream>
 #include <fstream>
-#include <iostream>
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <cctype>
 #include <string.h>
 #include <time.h>
+#include <vector>
 
 #include <errno.h>
 #include <fcntl.h>
@@ -39,7 +38,7 @@ private:
   std::string filename;
   int device1Handle;
   int readBytes;
-  char * buffer[];
+  char * buffer;
   int device1I2CAddress;
   int slave;
   int sendLength;
@@ -49,7 +48,7 @@ private:
 public:
   IIC(std::string file);
   bool commSetup();
-  bool sendData();
+  bool sendData(std::string message);
   bool getData();
   void clean();
   void run();
