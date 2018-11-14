@@ -1,5 +1,5 @@
 #This is the PWM configuration file. Use this file to modify the parameters
-#for the PWM signal.
+#for the PWM signal. Do not make unnecessary modifactions to the code.
 #Configuration file for the I2C protocol (relative path to the executable)
 ../I2C-config.txt
 #Maximum ESC value (int)
