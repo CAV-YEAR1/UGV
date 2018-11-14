@@ -120,7 +120,11 @@ void PWM::loop() {
 }
 
 bool PWM::off() {
-  std::string message = std::to_string(minSteering) + std::to_string(centerSteering);
+  std::string sp = std::to_string(minSpeed);
+  while(sp.length() < 3) sp = '0' + sp;
+  std::string st = std::to_string(centerSteering);
+  while(st.length() < 3) st = '0' + st;
+  std::string message = sp + sp;
   setPWM(message);
   return true;
 }
