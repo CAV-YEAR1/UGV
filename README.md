@@ -19,17 +19,17 @@ Then follow the instructions on the vehicle specific readme located in either th
 ### Prerequisites
 
 #### Software
-Python 2.7
-Cmake 3.5+
-Linux
+* **Python 2.7**
+* **Cmake 3.5+**
+* **Linux**
 
 #### Hardware
-Raspberry Pi
-nVidia Jetson TX2
-Arduino Uno
-Logic Level Converter
-HC-SR04 Ultrasonic Sensors
-Stereolabs ZED Camera
+* **Raspberry Pi**
+* **nVidia Jetson TX2**
+* **Arduino Uno**
+* **Logic Level Converter**
+* **HC-SR04 Ultrasonic Sensors**
+* **Stereolabs ZED Camera**
 
 ## Contributing
 
