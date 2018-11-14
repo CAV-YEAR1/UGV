@@ -109,6 +109,7 @@ void PWM::run() {
 }
 
 void PWM::loop() {
+  if(!setup()) return;
   if(currentMode == CALIBRATE) calibrate();
   else if(currentMode == THROTTLE) setThrottle();
   else if(currentMode == RUN) run();
