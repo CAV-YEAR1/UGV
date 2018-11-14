@@ -34,7 +34,7 @@ Then follow the instructions on the vehicle specific readme located in either th
 ## Contributing
 
 Modify code in a separate branch. All changes can only be merged to master after peer review and testing. Once complete submit pull request
-to merge with master. For more details on which specific files may be change check individual sub-directories.
+to merge with master. For more details on which specific files may be changed check individual sub-directories.
 
 ## Version
 
