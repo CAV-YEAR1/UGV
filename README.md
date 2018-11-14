@@ -9,9 +9,10 @@ the Stereolabs ZED camera.
 
 Use this code to run the target or host vehicle setup. To run this code, first clone the directory on to the device you wish to run it on:
 
-'''
+
+```
 git clone https://github.com/CAV-YEAR1/UGV.git
-'''
+```
 
 Then follow the instructions on the vehicle specific readme located in either the host or target vehicle sub-directories.
 
