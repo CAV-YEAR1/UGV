@@ -21,6 +21,7 @@ bool PWM::setup() {
   }
 
   comm = new IIC(config[0]);
+  comm -> commSetup();
   maxSpeed = std::stoi(config[1]);
   minSpeed = std::stoi(config[2]);
   startSpeed = std::stoi(config[3]);
@@ -37,6 +38,7 @@ bool PWM::setup() {
   }
 
   controlFile = config[8];
+  return true;
 
 }
 
@@ -97,13 +99,15 @@ void PWM::run() {
   std::string input;
   while(std::getline(in, input)) {
     if(input[0] != '#') {
-    std::stringstream ss(input);
+      std::stringstream ss(input);
       while(std::getline(ss, input, ',')) {
         message += input;
       }
+
+      setPWM(message.substr(0,6));
+      usleep(std::stoi(message.substr(6,message.back()))*1000000);
+      message.clear();
     }
-    setPWM(message.substr(0,6));
-    usleep(std::stoi(message.substr(6,message.back())));
   }
   off();
 }

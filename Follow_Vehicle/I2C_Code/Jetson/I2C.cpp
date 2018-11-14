@@ -26,7 +26,6 @@ bool IIC::commSetup() {
   slave = stoi(config[4]);
   sendLength = stoi(config[2]);
   receiveLength = stoi(config[3]);
-
   // initialize buffer
   buffer = new char[receiveLength + 1];
   buffer[0] = 0x00;
