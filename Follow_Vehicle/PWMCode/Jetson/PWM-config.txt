@@ -1,0 +1,21 @@
+#This is the PWM configuration file. Use this file to modify the parameters
+#for the PWM signal. Do not make unnecessary modifactions to the code.
+#Configuration file for the I2C protocol (relative path to the executable)
+../I2C-config.txt
+#Maximum ESC value (int)
+120
+#Minimum ESC value (int)
+90
+#Starting ESC value (int)
+100
+#Maximum steering servo value (int)
+150
+#Minimum steering servo value (int)
+30
+#Center servo position (int)
+90
+#operating mode (CAL, THR, or RUN)
+RUN
+#enter optional file name containing values for running
+../control.txt
+#End Configuration file
