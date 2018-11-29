@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp
+/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp
 I2C.hpp
-/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.hpp
+/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.hpp
 
-/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.hpp
+/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.hpp
 iostream
 -
 linux/types.h
@@ -64,15 +64,15 @@ sys/ioctl.h
 linux/i2c-dev.h
 -
 
-/home/ttase97/HEVT/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp
+/home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp
 PWM.hpp
-/home/ttase97/HEVT/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.hpp
+/home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.hpp
 
-/home/ttase97/HEVT/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.hpp
+/home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.hpp
 ../../I2C_Code/Jetson/I2C.hpp
-/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.hpp
+/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.hpp
 
-/home/ttase97/HEVT/UGV/Follow_Vehicle/PWMCode/Jetson/PWMMain.cpp
+/home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWMMain.cpp
 PWM.hpp
-/home/ttase97/HEVT/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.hpp
+/home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.hpp
 

@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ttase97/HEVT/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp" "/home/ttase97/HEVT/UGV/Follow_Vehicle/PWMCode/Jetson/build/CMakeFiles/PWM.dir/PWM.cpp.o"
-  "/home/ttase97/HEVT/UGV/Follow_Vehicle/PWMCode/Jetson/PWMMain.cpp" "/home/ttase97/HEVT/UGV/Follow_Vehicle/PWMCode/Jetson/build/CMakeFiles/PWM.dir/PWMMain.cpp.o"
-  "/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp" "/home/ttase97/HEVT/UGV/Follow_Vehicle/PWMCode/Jetson/build/CMakeFiles/PWM.dir/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.o"
+  "/home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp" "/home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/build/CMakeFiles/PWM.dir/PWM.cpp.o"
+  "/home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWMMain.cpp" "/home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/build/CMakeFiles/PWM.dir/PWMMain.cpp.o"
+  "/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp" "/home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/build/CMakeFiles/PWM.dir/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

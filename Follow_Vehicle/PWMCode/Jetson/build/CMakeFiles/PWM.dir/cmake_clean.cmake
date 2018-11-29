@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/PWM.dir/PWM.cpp.o"
   "CMakeFiles/PWM.dir/PWMMain.cpp.o"
-  "CMakeFiles/PWM.dir/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.o"
+  "CMakeFiles/PWM.dir/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.o"
   "PWM.pdb"
   "PWM"
 )
