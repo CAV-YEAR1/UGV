@@ -1,6 +1,7 @@
 import pygame
 import os   
 import time
+import CPP_PWM_CODE
 
 max_value = 1830 
 min_value = 1100
@@ -80,6 +81,9 @@ def main():
 					if calibrate_button.collidepoint(event.pos):
 						###calibrate??? is this needed for the jetson arduino?
 						print("calibrate")  
+						print(testFunc())
+						
+
 					if manual_button.collidepoint(event.pos):
 						##print("manual")
 						print("manual")

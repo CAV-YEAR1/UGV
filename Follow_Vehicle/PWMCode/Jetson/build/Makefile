@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson
+CMAKE_SOURCE_DIR = ../
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/build
+CMAKE_BINARY_DIR = ./
 
 #=============================================================================
 # Targets provided globally by CMake.

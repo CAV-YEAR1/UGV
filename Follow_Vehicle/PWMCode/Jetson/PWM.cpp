@@ -128,3 +128,14 @@ bool PWM::off() {
   setPWM(message);
   return true;
 }
+
+int testFunc() {
+	return 19812084;
+}
+
+
+#include <boost/python.hpp>
+BOOST_PYTHON_MODULE(CPP_PWM_CODE) {
+	using namespace boost::python;
+	def ("testFunc", testFunc);
+}
