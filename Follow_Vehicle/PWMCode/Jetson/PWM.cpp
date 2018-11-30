@@ -125,7 +125,7 @@ void PWM::run() {
         message += input;
       }
       currentSpeed = std::stoi(message.substr(0,3));
-      currentSteering = std::stoi(message.substr(2,3));
+      currentSteering = std::stoi(message.substr(3,3));
       setPWM();
       usleep(std::stoi(message.substr(6,message.back()))*1000000);
       message.clear();
