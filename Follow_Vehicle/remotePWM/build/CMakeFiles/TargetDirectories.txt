@@ -1,3 +1,0 @@
-/home/ttase97/HEVT/UGV/Follow_Vehicle/remotePWM/build/CMakeFiles/rebuild_cache.dir
-/home/ttase97/HEVT/UGV/Follow_Vehicle/remotePWM/build/CMakeFiles/RemotePWM.dir
-/home/ttase97/HEVT/UGV/Follow_Vehicle/remotePWM/build/CMakeFiles/edit_cache.dir
