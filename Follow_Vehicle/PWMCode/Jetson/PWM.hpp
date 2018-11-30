@@ -32,6 +32,7 @@ public:
   void run();
   void loop();
   bool off();
+  
 };
 
 #endif

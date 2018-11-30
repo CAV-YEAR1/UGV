@@ -63,7 +63,7 @@ bool IIC::getData() {
   readBytes = read(device1Handle, buffer, receiveLength);
 
 	if (readBytes != receiveLength) {
-    std::cout << "Error: Invalid receive!" << std::endl;
+    std::cout << "Error: Invalid receive! Length: " << readBytes << std::endl;
     return false;
   }
 	else

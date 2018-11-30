@@ -1,3 +1,3 @@
-/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/build/CMakeFiles/rebuild_cache.dir
-/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/build/CMakeFiles/I2C.dir
-/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/build/CMakeFiles/edit_cache.dir
+/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/build/CMakeFiles/rebuild_cache.dir
+/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/build/CMakeFiles/edit_cache.dir
+/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/build/CMakeFiles/I2C.dir

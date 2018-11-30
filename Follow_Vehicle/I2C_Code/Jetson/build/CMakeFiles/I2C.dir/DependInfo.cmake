@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp" "/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/build/CMakeFiles/I2C.dir/I2C.cpp.o"
-  "/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/I2CMain.cpp" "/home/ttase97/HEVT/UGV/Follow_Vehicle/I2C_Code/Jetson/build/CMakeFiles/I2C.dir/I2CMain.cpp.o"
+  "/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp" "/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/build/CMakeFiles/I2C.dir/I2C.cpp.o"
+  "/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2CMain.cpp" "/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/build/CMakeFiles/I2C.dir/I2CMain.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
