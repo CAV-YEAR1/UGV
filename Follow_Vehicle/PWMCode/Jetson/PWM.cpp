@@ -47,7 +47,7 @@ bool PWM::setPWM() {
   while(sp.length() < 3) sp = '0' + sp;
   std::string st = std::to_string(currentSteering);
   while(st.length() < 3) st = '0' + st;
-  std::string message = sp + sp;
+  std::string message = sp + st;
   std::cout<<message<<"\tSpeed: "<<currentSpeed<<"\tSteering: "<<currentSteering<<std::endl;
   if(!comm -> sendData(message)) return false;
 
