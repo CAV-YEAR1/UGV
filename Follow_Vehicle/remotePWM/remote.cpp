@@ -5,7 +5,7 @@
 
 int main(int argc, char * argv[])
 {
-  PWM p("../PWM-config.txt");
+  PWM p("../PWMCode/Jetson/PWM-config.txt");
   if(!p.setup()) {
     std::cout<<"Error: PWM setup failed"<<std::endl;
     return 0;
