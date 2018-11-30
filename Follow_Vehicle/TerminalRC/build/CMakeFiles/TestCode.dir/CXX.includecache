@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nvidia/Documents/UGV/Follow_Vehicle/TerminalRC/keyPress.cpp
+ncurses.h
+-
+unistd.h
+-
+
