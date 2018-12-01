@@ -1,9 +1,9 @@
 #This is the file that determines the control of the RC char
 #enter values as a comma separated file (speed,steering,duration)
+098,090,5
+100,090,5
 105,090,5
-110,090,5
-115,090,5
-090,090,2
-090,030,5
-090,150,5
+080,090,2
+080,030,5
+080,150,5
 #end of control file
