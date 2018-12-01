@@ -111,44 +111,98 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named TestCode
+# Target rules for targets named RemoteControl
 
 # Build rule for target.
-TestCode: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TestCode
-.PHONY : TestCode
+RemoteControl: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 RemoteControl
+.PHONY : RemoteControl
 
 # fast build rule for target.
-TestCode/fast:
-	$(MAKE) -f CMakeFiles/TestCode.dir/build.make CMakeFiles/TestCode.dir/build
-.PHONY : TestCode/fast
+RemoteControl/fast:
+	$(MAKE) -f CMakeFiles/RemoteControl.dir/build.make CMakeFiles/RemoteControl.dir/build
+.PHONY : RemoteControl/fast
 
-keyPress.o: keyPress.cpp.o
+home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.o: home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.o
 
-.PHONY : keyPress.o
+.PHONY : home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.o
 
 # target to build an object file
-keyPress.cpp.o:
-	$(MAKE) -f CMakeFiles/TestCode.dir/build.make CMakeFiles/TestCode.dir/keyPress.cpp.o
-.PHONY : keyPress.cpp.o
+home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.o:
+	$(MAKE) -f CMakeFiles/RemoteControl.dir/build.make CMakeFiles/RemoteControl.dir/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.o
+.PHONY : home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.o
 
-keyPress.i: keyPress.cpp.i
+home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.i: home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.i
 
-.PHONY : keyPress.i
+.PHONY : home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.i
 
 # target to preprocess a source file
-keyPress.cpp.i:
-	$(MAKE) -f CMakeFiles/TestCode.dir/build.make CMakeFiles/TestCode.dir/keyPress.cpp.i
-.PHONY : keyPress.cpp.i
+home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.i:
+	$(MAKE) -f CMakeFiles/RemoteControl.dir/build.make CMakeFiles/RemoteControl.dir/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.i
+.PHONY : home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.i
 
-keyPress.s: keyPress.cpp.s
+home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.s: home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.s
 
-.PHONY : keyPress.s
+.PHONY : home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.s
 
 # target to generate assembly for a file
-keyPress.cpp.s:
-	$(MAKE) -f CMakeFiles/TestCode.dir/build.make CMakeFiles/TestCode.dir/keyPress.cpp.s
-.PHONY : keyPress.cpp.s
+home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.s:
+	$(MAKE) -f CMakeFiles/RemoteControl.dir/build.make CMakeFiles/RemoteControl.dir/home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.s
+.PHONY : home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.cpp.s
+
+home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.o: home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp.o
+
+.PHONY : home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.o
+
+# target to build an object file
+home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp.o:
+	$(MAKE) -f CMakeFiles/RemoteControl.dir/build.make CMakeFiles/RemoteControl.dir/home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp.o
+.PHONY : home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp.o
+
+home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.i: home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp.i
+
+.PHONY : home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.i
+
+# target to preprocess a source file
+home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp.i:
+	$(MAKE) -f CMakeFiles/RemoteControl.dir/build.make CMakeFiles/RemoteControl.dir/home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp.i
+.PHONY : home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp.i
+
+home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.s: home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp.s
+
+.PHONY : home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.s
+
+# target to generate assembly for a file
+home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp.s:
+	$(MAKE) -f CMakeFiles/RemoteControl.dir/build.make CMakeFiles/RemoteControl.dir/home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp.s
+.PHONY : home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.cpp.s
+
+sshControl.o: sshControl.cpp.o
+
+.PHONY : sshControl.o
+
+# target to build an object file
+sshControl.cpp.o:
+	$(MAKE) -f CMakeFiles/RemoteControl.dir/build.make CMakeFiles/RemoteControl.dir/sshControl.cpp.o
+.PHONY : sshControl.cpp.o
+
+sshControl.i: sshControl.cpp.i
+
+.PHONY : sshControl.i
+
+# target to preprocess a source file
+sshControl.cpp.i:
+	$(MAKE) -f CMakeFiles/RemoteControl.dir/build.make CMakeFiles/RemoteControl.dir/sshControl.cpp.i
+.PHONY : sshControl.cpp.i
+
+sshControl.s: sshControl.cpp.s
+
+.PHONY : sshControl.s
+
+# target to generate assembly for a file
+sshControl.cpp.s:
+	$(MAKE) -f CMakeFiles/RemoteControl.dir/build.make CMakeFiles/RemoteControl.dir/sshControl.cpp.s
+.PHONY : sshControl.cpp.s
 
 # Help Target
 help:
@@ -158,10 +212,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... TestCode"
-	@echo "... keyPress.o"
-	@echo "... keyPress.i"
-	@echo "... keyPress.s"
+	@echo "... RemoteControl"
+	@echo "... home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.o"
+	@echo "... home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.i"
+	@echo "... home/nvidia/Documents/UGV/Follow_Vehicle/I2C_Code/Jetson/I2C.s"
+	@echo "... home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.o"
+	@echo "... home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.i"
+	@echo "... home/nvidia/Documents/UGV/Follow_Vehicle/PWMCode/Jetson/PWM.s"
+	@echo "... sshControl.o"
+	@echo "... sshControl.i"
+	@echo "... sshControl.s"
 .PHONY : help
 
 

@@ -60,39 +60,39 @@ CMAKE_SOURCE_DIR = /home/nvidia/Documents/UGV/Follow_Vehicle/TerminalRC
 CMAKE_BINARY_DIR = /home/nvidia/Documents/UGV/Follow_Vehicle/TerminalRC/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/TestCode.dir
+# Target rules for target CMakeFiles/RemoteControl.dir
 
 # All Build rule for target.
-CMakeFiles/TestCode.dir/all:
-	$(MAKE) -f CMakeFiles/TestCode.dir/build.make CMakeFiles/TestCode.dir/depend
-	$(MAKE) -f CMakeFiles/TestCode.dir/build.make CMakeFiles/TestCode.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nvidia/Documents/UGV/Follow_Vehicle/TerminalRC/build/CMakeFiles --progress-num=1,2 "Built target TestCode"
-.PHONY : CMakeFiles/TestCode.dir/all
+CMakeFiles/RemoteControl.dir/all:
+	$(MAKE) -f CMakeFiles/RemoteControl.dir/build.make CMakeFiles/RemoteControl.dir/depend
+	$(MAKE) -f CMakeFiles/RemoteControl.dir/build.make CMakeFiles/RemoteControl.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nvidia/Documents/UGV/Follow_Vehicle/TerminalRC/build/CMakeFiles --progress-num=1,2,3,4 "Built target RemoteControl"
+.PHONY : CMakeFiles/RemoteControl.dir/all
 
 # Include target in all.
-all: CMakeFiles/TestCode.dir/all
+all: CMakeFiles/RemoteControl.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/TestCode.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nvidia/Documents/UGV/Follow_Vehicle/TerminalRC/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/TestCode.dir/all
+CMakeFiles/RemoteControl.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nvidia/Documents/UGV/Follow_Vehicle/TerminalRC/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/RemoteControl.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nvidia/Documents/UGV/Follow_Vehicle/TerminalRC/build/CMakeFiles 0
-.PHONY : CMakeFiles/TestCode.dir/rule
+.PHONY : CMakeFiles/RemoteControl.dir/rule
 
 # Convenience name for target.
-TestCode: CMakeFiles/TestCode.dir/rule
+RemoteControl: CMakeFiles/RemoteControl.dir/rule
 
-.PHONY : TestCode
-
-# clean rule for target.
-CMakeFiles/TestCode.dir/clean:
-	$(MAKE) -f CMakeFiles/TestCode.dir/build.make CMakeFiles/TestCode.dir/clean
-.PHONY : CMakeFiles/TestCode.dir/clean
+.PHONY : RemoteControl
 
 # clean rule for target.
-clean: CMakeFiles/TestCode.dir/clean
+CMakeFiles/RemoteControl.dir/clean:
+	$(MAKE) -f CMakeFiles/RemoteControl.dir/build.make CMakeFiles/RemoteControl.dir/clean
+.PHONY : CMakeFiles/RemoteControl.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/RemoteControl.dir/clean
 
 .PHONY : clean
 
