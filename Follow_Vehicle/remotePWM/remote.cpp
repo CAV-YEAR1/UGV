@@ -1,6 +1,7 @@
 #include "../PWMCode/Jetson/PWM.hpp"
 
 #define LEFT 150
+#define STRAIGHT 90
 #define RIGHT 30
 
 int main(int argc, char * argv[])
@@ -10,7 +11,7 @@ int main(int argc, char * argv[])
     std::cout<<"Error: PWM setup failed"<<std::endl;
     return 0;
   }
-
+  
   std::string input;
   for(;;) {
     getline(std::cin, input);
@@ -29,6 +30,12 @@ int main(int argc, char * argv[])
     }
     else if(input == "r") {
       if(!p.setSteering(RIGHT)) {
+        p.off();
+        return 0;
+      }
+    }
+    else if(input == "s") {
+      if(!p.setSteering(STRAIGHT)) {
         p.off();
         return 0;
       }

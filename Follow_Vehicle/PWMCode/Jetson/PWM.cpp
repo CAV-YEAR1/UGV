@@ -38,6 +38,10 @@ bool PWM::setup() {
   }
 
   controlFile = config[8];
+
+  currentSpeed = minSpeed;
+  currentSteering = centerSteering;
+
   return true;
 
 }
