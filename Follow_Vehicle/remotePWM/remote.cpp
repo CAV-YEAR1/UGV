@@ -11,7 +11,7 @@ int main(int argc, char * argv[])
     std::cout<<"Error: PWM setup failed"<<std::endl;
     return 0;
   }
-  
+
   std::string input;
   for(;;) {
     getline(std::cin, input);
@@ -39,6 +39,11 @@ int main(int argc, char * argv[])
         p.off();
         return 0;
       }
+    }
+    else if(input == "q") {
+      p.off();
+      std::cout<<"Exiting Program"<<std::endl;
+      return 0;
     }
     else {
       std::cout<<"Invalid Command"<<std::endl;
