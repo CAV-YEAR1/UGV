@@ -3,6 +3,8 @@
 
 #include<sl/Camera.hpp>
 
+using namespace sl;
+
 class Zed {
 
 private:
