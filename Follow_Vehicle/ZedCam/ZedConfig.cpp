@@ -14,7 +14,7 @@ bool Zed::initialize() {
   init_params.camera_fps = 60;
   init_params.coordinate_units = sl::UNIT_MILLIMETER;
   init_params.depth_mode = sl::DEPTH_MODE_ULTRA;
-  init_params.depth_minimum_distance = 0.05;
+  init_params.depth_minimum_distance = 0.15;
 
   sl::ERROR_CODE err = zed.open(init_params);
   if(err != sl::SUCCESS) {
