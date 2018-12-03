@@ -40,17 +40,15 @@ float Zed::getDistance() {
   for(int i = 0; i<point_cloud.getWidth(); ++i)
   {
     point_cloud.getValue(i, point_cloud.getHeight()/2, &point3D);
-    sumDistance += sqrt(point3D.x*point3D.x + point3D.y*point3D.y + point3D.z*point3D.z);
+    sumDistance += point3D.z;
+    std::cout<<"Sum: "<<sumDistance<<std::endl;
   }
 
-  float  distance = sumDistance/point_cloud.getWidth();
+  float distance = sumDistance/point_cloud.getWidth();
   return distance;
 }
 
 void Zed::run() {
-  int y = point_cloud.getHeight();
-  int x = 0;
-
   for(;;) {
     if(!updateFrame()) {
       std::cout<<"Error: unable to grab frame"<<std::endl;
