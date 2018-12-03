@@ -16,7 +16,7 @@ bool Zed::initialize() {
   init_params.depth_mode = DEPTH_MODE_ULTRA;
   init_params.depth_minimum_distance = 0.05;
 
-  Error_CODE err =zed.open(init_params);
+  sl::Error_CODE err =zed.open(init_params);
   if(err != SUCCESS) {
     std::cout<<"Error: unable to open camera"<<std::endl;
     exit(-1);

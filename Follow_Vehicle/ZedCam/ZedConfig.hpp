@@ -8,16 +8,16 @@ class Zed {
 private:
   sl::Camera zed;
   sl::Mat point_cloud;
-  float4 point3D;
-  InitParameters init_params;
-  RuntimeParameters runtime_parameters;
+  sl::float4 point3D;
+  sl::InitParameters init_params;
+  sl::RuntimeParameters runtime_parameters;
 
 public:
   Zed();
   ~Zed();
   bool initialize();
   bool updateFrame();
-  float getDistance(int i, int j);
+  float getDistance();
   void run();
   void end();
 
