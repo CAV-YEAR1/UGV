@@ -2,19 +2,16 @@
 UGV for Testing puposes based on Jetson Car model.
 
 ## Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This branch contains the wiring diagrams for the UGV. To edit the diagram, open the Visio file
 
 ## Prerequisites
-Pygame - if not avaible
+none
 
 ## Give examples
-pip install pygame
+n/a
 
 ## Running the tests
-Plug in right wires
-Run the code
-To calibrate, unplug and plug it back
-Press buttons for the movement
+See Diagram for more info
 
 ## Authors
-Sidhant Singhal - GUI PWM ESC
+Graham Wobig
