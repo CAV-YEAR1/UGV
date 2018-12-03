@@ -15,6 +15,8 @@ private:
   int minSteering;
   int maxSteering;
   int centerSteering;
+  int currentSpeed;
+  int currentSteering;
   std::string filename;
   std::string controlFile;
   Mode currentMode;
@@ -24,8 +26,9 @@ public:
   PWM(std::string file);
   ~PWM();
   bool setup();
-  bool setPWM(int value);
-  bool setPWM(std::string value);
+  bool setPWM();
+  bool setSpeed(int value);
+  bool setSteering(int value);
   //bool getPWM(int value);
   void calibrate();
   void setThrottle();

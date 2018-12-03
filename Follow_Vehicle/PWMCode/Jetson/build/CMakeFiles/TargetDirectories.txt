@@ -1,3 +1,0 @@
-/home/ttase97/HEVT/UGV/Follow_Vehicle/PWMCode/Jetson/build/CMakeFiles/rebuild_cache.dir
-/home/ttase97/HEVT/UGV/Follow_Vehicle/PWMCode/Jetson/build/CMakeFiles/PWM.dir
-/home/ttase97/HEVT/UGV/Follow_Vehicle/PWMCode/Jetson/build/CMakeFiles/edit_cache.dir

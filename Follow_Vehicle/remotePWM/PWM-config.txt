@@ -5,7 +5,7 @@
 #Maximum ESC value (int)
 120
 #Minimum ESC value (int)
-80
+90
 #Starting ESC value (int)
 100
 #Maximum steering servo value (int)

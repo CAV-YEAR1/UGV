@@ -38,17 +38,42 @@ bool PWM::setup() {
   }
 
   controlFile = config[8];
+
+  currentSpeed = minSpeed;
+  currentSteering = centerSteering;
+
   return true;
 
 }
 
-bool PWM::setPWM(int value) {
-  std::string message = std::to_string(value);
+bool PWM::setPWM() {
+  std::string sp = std::to_string(currentSpeed);
+  while(sp.length() < 3) sp = '0' + sp;
+  std::string st = std::to_string(currentSteering);
+  while(st.length() < 3) st = '0' + st;
+  std::string message = sp + st;
+  std::cout<<message<<"\tSpeed: "<<currentSpeed<<"\tSteering: "<<currentSteering<<std::endl;
   if(!comm -> sendData(message)) return false;
+
+  return true;
 }
 
-bool PWM::setPWM(std::string value) {
-  if(!comm -> sendData(value)) return false;
+bool PWM::setSpeed(int value) {
+  if(value < 0 || value > 180) {
+    std::cout<<"Error: Invalid Speed"<<std::endl;
+    return false;
+  }
+  currentSpeed = value;
+  setPWM();
+}
+
+bool PWM::setSteering(int value) {
+  if(value < 0 || value > 180) {
+    std::cout<<"Error: Invalid Speed"<<std::endl;
+    return false;
+  }
+  currentSteering = value;
+  setPWM();
 }
 
 //bool PWM::getPWM(int value);
@@ -56,23 +81,23 @@ void PWM::calibrate() {
   std::string input;
   std::string message;
   std::cout<<"Entering Calibration mode, press any key or type \"quit\" to exit"<<std::endl;
-  message = std::to_string(maxSpeed) + "000";
-  if(!setPWM(message)) {
+  currentSpeed = maxSpeed;
+  if(!setPWM()) {
     std::cout<<"Error: Invalid maximum value"<<std::endl;
     return;
   }
   std::cin>>input;
   if(input == "quit") return;
-  message = std::to_string(minSpeed) + "000";
-  if(!setPWM(message)) {
+  currentSpeed = minSpeed;
+  if(!setPWM()) {
     std::cout<<"Error: Invalid minimum value"<<std::endl;
     return;
   }
   std::cout<<"Press any key or type \"quit\" to exit"<<std::endl;
   std::cin>>input;
   if(input == "quit") return;
-  message = std::to_string(maxSpeed) + "000";
-  if(!setPWM(message)) {
+  message = maxSpeed;
+  if(!setPWM()) {
     std::cout<<"Error: Invalid maximum value"<<std::endl;
     return;
   }
@@ -103,8 +128,9 @@ void PWM::run() {
       while(std::getline(ss, input, ',')) {
         message += input;
       }
-
-      setPWM(message.substr(0,6));
+      currentSpeed = std::stoi(message.substr(0,3));
+      currentSteering = std::stoi(message.substr(3,3));
+      setPWM();
       usleep(std::stoi(message.substr(6,message.back()))*1000000);
       message.clear();
     }
@@ -120,11 +146,8 @@ void PWM::loop() {
 }
 
 bool PWM::off() {
-  std::string sp = std::to_string(minSpeed);
-  while(sp.length() < 3) sp = '0' + sp;
-  std::string st = std::to_string(centerSteering);
-  while(st.length() < 3) st = '0' + st;
-  std::string message = sp + sp;
-  setPWM(message);
+  currentSpeed = minSpeed;
+  currentSteering = centerSteering;
+  setPWM();
   return true;
 }
