@@ -1,6 +1,6 @@
 //This holds code for getting current distance to objects
 //arranged in a c++ class for ease of use
-#include "distance.h"
+#include "distance.hpp"
 
 using namespace std;
 
@@ -35,7 +35,7 @@ Distance::Distance(jetsonGPIO trig, jetsonGPIO echo) {
 	sensor->exportGPIO();
 	sensor->setDirection();
 	//average over 5 measurements
-	avg = new Moving_Average(5);
+	avg = new Moving_Average(10);
 }
 
 //destructor for this class

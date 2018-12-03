@@ -1,4 +1,4 @@
-#include "moving_average.h"
+#include "moving_average.hpp"
 
 /**
  * Create a new moving average object in your code. The number in the 

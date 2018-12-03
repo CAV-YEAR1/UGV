@@ -7,9 +7,9 @@
 #include <sys/time.h>
 #include <iostream>
 #include <unistd.h>
-#include <jetsonGPIO.h>
-#include <hcsr04.h>
-#include "moving_average.h"
+#include "../jetsonGPIO.hpp"
+#include "../hcsr04.hpp"
+#include "../moving_average.hpp"
 
 using namespace std;
 
