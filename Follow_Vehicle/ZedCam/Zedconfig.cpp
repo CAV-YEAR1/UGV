@@ -51,8 +51,11 @@ void Zed::run() {
   int x = 0;
 
   for(;;) {
-    updateFrame();
-    getDistance();
+    if(!updateFrame()) {
+      std::cout<<"Error: unable to grab frame"<<std::endl;
+      return;
+    }
+    std::cout<<getDistance()<<std::endl;
   }
 }
 
