@@ -13,7 +13,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 link_directories(${ZED_LIBRARY_DIR})
 link_directories(${CUDA_LIBRARY_DIRS})
 
-ADD_EXECUTABLE(ZED ZedConfig.hpp ZedConfig.cpp)
+ADD_EXECUTABLE(ZED ZedConfig.hpp ZedConfig.cpp ZedMain.cpp)
 
 TARGET_LINK_LIBRARIES(ZED ${ZED_LIBRARIES}
 ${CUDA_CUDA_LIBRARY} ${CUDA_CUDART_LIBRARY} ${CUDA_NPP_LIBRARIES_ZED} )
