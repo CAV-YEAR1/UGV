@@ -16,7 +16,7 @@ bool Zed::initialize() {
   init_params.depth_mode = sl::DEPTH_MODE_ULTRA;
   init_params.depth_minimum_distance = 0.05;
 
-  Error_CODE err = zed.open(init_params);
+  sl::ERROR_CODE err = zed.open(init_params);
   if(err != sl::SUCCESS) {
     std::cout<<"Error: unable to open camera"<<std::endl;
     exit(-1);
@@ -28,7 +28,7 @@ bool Zed::initialize() {
 
 bool Zed::updateFrame() {
   if(zed.grab(runtime_parameters) == sl::SUCCESS) {
-    zed.retrieveMeasure(point_cloud, sl::MEASURE_XYSRGBA);
+    zed.retrieveMeasure(point_cloud, sl::MEASURE_XYZRGBA);
     return true;
   }
 
