@@ -1,53 +1,62 @@
-#include "../PWMCode/Jetson/PWM.hpp"
+#include "remote.hpp"
 
-#define LEFT 150
-#define STRAIGHT 90
-#define RIGHT 30
-
-int main(int argc, char * argv[])
+remote::remote(QWidget * parent) : prevState(S)
 {
-  PWM p("../PWM-config.txt");
-  if(!p.setup()) {
+  auto layout = new QVBoxLayout;
+  setLayout(layout);
+  p = new PWM("../PWM-config.txt");
+  if(!p -> setup()) {
     std::cout<<"Error: PWM setup failed"<<std::endl;
-    return 0;
+    error = true;
   }
+}
 
-  std::string input;
-  for(;;) {
-    getline(std::cin, input);
-    if(input.find_first_of("0123456789") != std::string::npos)
-    {
-      if(!p.setSpeed(std::stoi(input))) {
-        p.off();
-        return 0;
-      }
-    }
-    else if(input == "l") {
-      if(!p.setSteering(LEFT)) {
-        p.off();
-        return 0;
-      }
-    }
-    else if(input == "r") {
-      if(!p.setSteering(RIGHT)) {
-        p.off();
-        return 0;
-      }
-    }
-    else if(input == "s") {
-      if(!p.setSteering(STRAIGHT)) {
-        p.off();
-        return 0;
-      }
-    }
-    else if(input == "q") {
-      p.off();
-      std::cout<<"Exiting Program"<<std::endl;
-      return 0;
-    }
-    else {
-      std::cout<<"Invalid Command"<<std::endl;
-    }
+void remote::updateSteering(int value) {
+  std::cout<<value<<std::endl;
+}
+
+void remote::updateSpeed(int value) {
+  std::cout<<value<<std::endl;
+}
+
+void remote::keyPressEvent(QKeyEvent *event) {
+
+  if(event -> isAutoRepeat()) return;
+
+  switch (event -> key()) {
+    case Qt::Key_Up:
+      updateSpeed(FORWARD);
+      break;
+    case Qt::Key_Down:
+      updateSpeed(REVERSE);
+      break;
+    case Qt::Key_Left:
+      updateSteering(LEFT);
+      break;
+    case Qt::Key_Right:
+      updateSteering(RIGHT);
+      break;
+    case Qt::Key_Q:
+      exit(1);
+      break;
   }
-  return 0;
+}
+
+void remote::keyReleaseEvent(QKeyEvent *event) {
+  if(event -> isAutoRepeat()) return;
+
+  switch (event -> key()) {
+    case Qt::Key_Up:
+      updateSpeed(STOP);
+      break;
+    case Qt::Key_Down:
+      updateSpeed(STOP);
+      break;
+    case Qt::Key_Left:
+      updateSteering(STRAIGHT);
+      break;
+    case Qt::Key_Right:
+      updateSteering(STRAIGHT);
+      break;
+  }
 }
